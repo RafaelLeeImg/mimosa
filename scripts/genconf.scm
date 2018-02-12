@@ -1,4 +1,4 @@
-#! /usr/local/bin/guile \
+#! /usr/bin/guile \
 -L scripts -e main
 !#
 

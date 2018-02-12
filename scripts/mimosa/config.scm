@@ -62,7 +62,7 @@
                  (lambda (port) (xml->sxml port #:trim-whitespace? #t)))))
     (when (->bool (boot-grub sxml)) (format #t "#define __MULTI_BOOT__~%"))
     (format #t "#define MIMOSA_BSP ~s~%" (platform-name sxml))
-    (format #t "#define FULL_ADDR ~a~%" (platform-fulladdr sxml))
+    (format #t "#define FULL_ADDR ~a~%" (memory-fulladdr sxml))
 
     (when (->bool (page-enabled sxml))
           (format #t "#define PT_LEVEL ~a~%" (page-ptlevel sxml))

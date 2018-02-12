@@ -26,3 +26,4 @@ GSYMS
 *.o
 *.so
 *.so.*
+*.bak
