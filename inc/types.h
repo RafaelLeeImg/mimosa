@@ -38,15 +38,28 @@ typedef __longword longword;
 // Explicitly-sized versions of integer types
 typedef __s8_t s8_t;
 typedef __u8_t u8_t;
+typedef __s8_t int8_t;
+typedef __s8_t sint8_t;
+typedef __u8_t uint8_t;
+typedef __s16_t int16_t;
 typedef __s16_t s16_t;
 typedef __u16_t u16_t;
+typedef __s16_t int16_t;
+typedef __s16_t sint16_t;
+typedef __u16_t uint16_t;
 #ifndef __NO_32_T
 typedef __s32_t s32_t;
 typedef __u32_t u32_t;
+typedef __s32_t int32_t;
+typedef __s32_t sint32_t;
+typedef __u32_t uint32_t;
 #endif
-#ifndef __NO_64_T 
+#ifndef __NO_64_T
 typedef __s64_t s64_t;
 typedef __u64_t u64_t;
+typedef __s64_t int64_t;
+typedef __s64_t sint64_t;
+typedef __u64_t uint64_t;
 #endif
 
 // generic pointer, one step vary pointer
