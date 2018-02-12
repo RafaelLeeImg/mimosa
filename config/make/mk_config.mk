@@ -7,7 +7,7 @@
 KDEBUG := 1
 
 # Optimize config
-# O_LEV := 
+# O_LEV :=
 
 ifeq ($(BSP),pc32)
 GCCPREFIX :=
@@ -72,3 +72,40 @@ $(TARGET).eep: all
 program: $(TARGET).hex $(TARGET).eep
 	$(V)$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM) -b 57600 -v
 endif
+
+
+## ARM-Cortex-M4F BSP config
+ifeq ($(BSP),ARM-Cortex-M4F)
+O_LEV := s
+GCCPREFIX := arm-none-eabi-
+KDEBUG :=
+STABS :=
+MIMOSA_BSP_CFLAGS := -fno-jump-tables -fpack-struct -fshort-enums -funsigned-bitfields
+MIMOSA_BSP_LDFLAGS := -N
+
+MIMOSA_LIB_CFLAGS := -DUSE_LIB_BITWISE -DUSE_LIB_MATH -DUSE_LIB_MEMCHR     \
+		-DUSE_LIB_MEMCPY -DUSE_LIB_MEMMOVE -DUSE_LIB_MEMSET        \
+		-DUSE_LIB_PRINTF -DUSE_LIB_READLINE -DUSE_LIB_STRCHR       \
+		-DUSE_LIB_STRNCAT -DUSE_LIB_STRNCMP -DUSE_LIB_STRNCPY      \
+		-DUSE_LIB_STRNDUP -DUSE_LIB_STRNLEN -DUSE_LIB_STRTOL
+
+MIMOSA_KERN_CFLAGS :=
+MIMOSA_GENERIC_CFLAGS := -DUSE_GENERIC_STREAM
+MIMOSA_BSP_SPECIFIC := -DUSE_KERN_MALLOC
+MIMOSA_DRIVER_CFLAGS :=
+
+MCU := STM32F407VG
+TARGET := mimosa
+
+# .PHONY: program
+
+$(TARGET).hex: all
+	$(OBJCOPY) -O $(AVR_FORMAT) -R .eeprom mimosa $@
+
+$(TARGET).eep: all
+	$(OBJCOPY) -j .eeprom --set-section-flags=.eeprom="alloc,load" --change-section-lma .eeprom=0 -O $(AVR_FORMAT) mimosa $@
+
+# program: $(TARGET).hex $(TARGET).eep
+#		$(V)$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM) -b 57600 -v
+endif
+## end of ARM-Cortex-M4F BSP config

@@ -1,6 +1,5 @@
-#ifdef USE_LIB_STRCHR
-/*
- *  Copyright (C) 2010-2011,2016
+/*	
+ *  Copyright (C) 2016
  *	"Mu Lei" known as "NalaGinrut" <NalaGinrut@gmail.com>
  
  *  This program is free software: you can redistribute it and/or modify
@@ -17,17 +16,23 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <libkern.h>
+#include <osconfig.h>
+#include <kernel.h>
 #include <types.h>
+#include <bsp/bsp_init.h>
 
-char *strchr(void const *str ,int c_in)
+#ifdef __KERN_DEBUG__
+#include <debug.h>
+#endif
+
+void platform_init()
 {
-  size_t len = strnlen(str ,MAX_STRING_LEN);
-  
-  if( !len )
-    return (char*)str;
-  
-  return (char*)memchr(str ,c_in ,len);
+  kernel_init();
 }
 
-#endif // End of USE_LIB_STRCHR
+static void bsp_init_platform_specific()
+{
+  /* TODO:
+   * All platform specific init code should be put here
+   */
+}

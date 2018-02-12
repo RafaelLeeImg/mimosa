@@ -1,6 +1,7 @@
-#ifdef USE_LIB_STRCHR
-/*
- *  Copyright (C) 2010-2011,2016
+#ifndef __MIMOSA_BSP_CPU_H
+#define __MIMOSA_BSP_CPU_H
+/*	
+ *  Copyright (C) 2010-2011  
  *	"Mu Lei" known as "NalaGinrut" <NalaGinrut@gmail.com>
  
  *  This program is free software: you can redistribute it and/or modify
@@ -17,17 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <libkern.h>
-#include <types.h>
+// #include "cpu/_cpu.h"
+// #include "cpu/trap.h"
 
-char *strchr(void const *str ,int c_in)
-{
-  size_t len = strnlen(str ,MAX_STRING_LEN);
-  
-  if( !len )
-    return (char*)str;
-  
-  return (char*)memchr(str ,c_in ,len);
-}
 
-#endif // End of USE_LIB_STRCHR
+#endif // End of __MIMOSA_BSP_CPU_H;

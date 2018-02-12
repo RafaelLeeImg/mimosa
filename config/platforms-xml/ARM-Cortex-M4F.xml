@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config PUBLIC "mimosa-config" "../config.dtd">
+<config>
+
+  <platform>
+    <name>ARM-Cortex-M4F</name>
+    <bitwidth>32</bitwidth>
+  </platform>
+
+  <memory>
+    <kern_base>0x20000000</kern_base>
+    <kern_begin>0x20000000</kern_begin>
+    <kern_stack>8</kern_stack>
+    <full_addr>0x27ffffff</full_addr>
+    <addr_bits>32</addr_bits>
+    <mem_holeend></mem_holeend>
+    <io_phymem></io_phymem>
+    <align_size>4</align_size>
+  </memory>
+
+  <mmu>
+    <page>
+      <enabled>false</enabled>
+      <pt_level></pt_level>
+      <pg_size></pg_size>
+      <pg_entries></pg_entries>
+      <pt_size></pt_size>
+      <pd_size></pd_size>
+    </page>
+  </mmu>
+
+  <debug>
+    <enable>
+      <kern_tmp_map_size>(FULL_ADDR - KERN_BASE + 1)</kern_tmp_map_size>
+    </enable>
+    <disable>
+      <kern_tmp_map_size>PT_SIZE</kern_tmp_map_size>
+    </disable>
+  </debug>
+
+  <boot>
+    <grub>true</grub>
+  </boot>
+
+</config>

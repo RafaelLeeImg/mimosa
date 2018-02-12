@@ -26,7 +26,7 @@ CONF := $(TOP)/config
 # Again! The Mimosa build framework is based on these lines. So let them alone!
 
 # default BSP is PC32
-BSP := pc32
+BSP := ARM-Cortex-M4F
 APP :=
 
 all: kernel.ld

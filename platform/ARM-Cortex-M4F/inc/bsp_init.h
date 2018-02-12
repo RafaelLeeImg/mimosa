@@ -1,7 +1,8 @@
-#ifdef USE_LIB_STRCHR
+#ifndef	__MIMOSA_BSP_INIT_H
+#define __MIMOSA_BSP_INIT_H
 /*
- *  Copyright (C) 2010-2011,2016
- *	"Mu Lei" known as "NalaGinrut" <NalaGinrut@gmail.com>
+ *  Copyright (C) 2016
+ *      "Mu Lei" known as "NalaGinrut" <NalaGinrut@gmail.com>
  
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,17 +18,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <libkern.h>
-#include <types.h>
+extern char __bss_start[] ,__bss_end[];
 
-char *strchr(void const *str ,int c_in)
-{
-  size_t len = strnlen(str ,MAX_STRING_LEN);
-  
-  if( !len )
-    return (char*)str;
-  
-  return (char*)memchr(str ,c_in ,len);
-}
+#define __BSS_SIZE	(__bss_end - __bss_start)
 
-#endif // End of USE_LIB_STRCHR
+void platform_init();
+static void bsp_init_clear_tmp();
+static void bsp_init_console();
+static void bsp_init_memory();
+static void bsp_init_online_debug();
+static void bsp_init_platform_specific();
+#endif // End of __MIMOSA_BSP_INIT_H;

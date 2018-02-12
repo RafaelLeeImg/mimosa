@@ -20,6 +20,8 @@
 #include <mm/mm.h>
 #include <libkern.h>
 #include <types.h>
+// extern kmalloc;
+extern void *kmalloc(size_t size);
 
 char *strndup(char const *str ,size_t n)
 {

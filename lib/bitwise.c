@@ -1,5 +1,5 @@
 #ifdef USE_LIB_BITWISE
-/*	
+/*
  *  Copyright (C) 2012,2016
  *	"Mu Lei" known as "NalaGinrut" <NalaGinrut@gmail.com>
  
@@ -41,5 +41,4 @@ u32_t lbc(u32_t v)
 
   return r;
 }
-
 #endif // End of USE_LIB_BITWISE;

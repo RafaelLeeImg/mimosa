@@ -1,5 +1,5 @@
 #ifdef USE_LIB_MEMCHR
-/*	
+/*
  *  Copyright (C) 2010-2011,2016
  *	"Mu Lei" known as "NalaGinrut" <NalaGinrut@gmail.com>
  
@@ -80,5 +80,4 @@ void *memchr(void const *str ,int c_in ,size_t n)
 
   return NULL;
 }
-
 #endif // End of USE_LIB_MEMCHR;

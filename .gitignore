@@ -12,3 +12,17 @@ platform/bsp
 mimosa
 config/conf.ld
 *~
+
+GTAGS
+GPATH
+GRTAGS
+GSYMS
+
+\#.*#
+
+
+
+*~
+*.o
+*.so
+*.so.*

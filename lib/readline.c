@@ -56,8 +56,11 @@ static char *read_line_polling(const char *prompt)
     cprintf("%s" ,prompt);
 
   i = 0;
+
+#ifdef BSP_PC32
   echoing = iscons(0);
-  
+#endif
+
   while(1)
     {
       c = __GET_CHAR__();

@@ -93,7 +93,7 @@ SECTIONS
 	 * available memory. limit-addr is "init_end" after startup.
 	 */
 	.init : {
-	      	*(.init)
+          PROVIDE(__init_start = .); *(.init) PROVIDE(__init_end = .);
 	}
 	PROVIDE(KERN_SYM(init_end) = .);
 

@@ -22,4 +22,4 @@ LDFLAGS := $(LDPATH) -T$(TOP)/kernel.ld -nostdlib -E $(MIMOSA_BSP_LDFLAGS)
 CFLAGS := $(CFLAGS) -O$(O_LEV) -nostdinc -fno-stack-protector -Wno-int-to-pointer-cast  -Wpointer-arith -Wextra \
 	-I$(INC) -MD -Wall -Wno-format -Wno-unused -std=gnu99 $(STABS) $(MIMOSA_BSP_CFLAGS) \
 	$(MIMOSA_LIB_CFLAGS) $(MIMOSA_KERN_CFLAGS) $(MIMOSA_GENERIC_CFLAGS) $(MIMOSA_BSP_SPECIFIC) \
-	$(MIMOSA_DRIVER_CFLAGS) -W
+	$(MIMOSA_DRIVER_CFLAGS) -W -fno-builtin
