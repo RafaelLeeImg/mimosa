@@ -80,7 +80,11 @@ O_LEV := s
 GCCPREFIX := arm-none-eabi-
 KDEBUG :=
 STABS :=
-MIMOSA_BSP_CFLAGS := -fno-jump-tables -fpack-struct -fshort-enums -funsigned-bitfields
+
+MCU := STM32F407VG
+MCU_TYPE := STM32F407xx
+
+MIMOSA_BSP_CFLAGS := -fno-jump-tables -fpack-struct -fshort-enums -funsigned-bitfields -D$(MCU_TYPE)
 MIMOSA_BSP_LDFLAGS := -N
 
 MIMOSA_LIB_CFLAGS := -DUSE_LIB_BITWISE -DUSE_LIB_MATH -DUSE_LIB_MEMCHR     \
@@ -94,7 +98,6 @@ MIMOSA_GENERIC_CFLAGS := -DUSE_GENERIC_STREAM
 MIMOSA_BSP_SPECIFIC := -DUSE_KERN_MALLOC
 MIMOSA_DRIVER_CFLAGS :=
 
-MCU := STM32F407VG
 TARGET := mimosa
 
 # .PHONY: program
